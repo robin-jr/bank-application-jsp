@@ -15,6 +15,24 @@ public class Transaction {
         this.time = time;
         this.mode = mode;
     }
+    public int getId() {
+        return id;
+    }
+    public String getFromAccNo() {
+        return fromAccNo;
+    }
+    public String getToAccNo() {
+        return toAccNo;
+    }
+    public Double getAmount() {
+        return amount;
+    }
+    public Timestamp getTime() {
+        return time;
+    }
+    public String getMode() {
+        return mode;
+    }
 
     @Override
     public String toString() {

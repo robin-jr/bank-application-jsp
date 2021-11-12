@@ -35,6 +35,25 @@ public class MySqlCon {
         }
         return null;
     }
+    public static User userExists(String accNo) {
+        try {
+            PreparedStatement st = connection
+                    .prepareStatement(String.format("Select * from users where acc_no='%s'", accNo));
+            ResultSet rs = st.executeQuery();
+            if (rs.next()) {
+                User user = new User(rs.getInt("id"), rs.getString("acc_no"), rs.getString("name"),
+                        rs.getString("password"), rs.getDouble("balance"), rs.getString("phone"),
+                        rs.getString("aadhar_no"));
+                System.out.println(user);
+                return user;
+            } else {
+                return null;
+            }
+        } catch (SQLException exception) {
+            exception.printStackTrace();
+        }
+        return null;
+    }
 
     public static User postUser(User user) {
         try {

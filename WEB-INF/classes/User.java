@@ -20,7 +20,28 @@ public class User {
                 ", aadhar=" + aadharNo +
                 '}';
     }
-    
+    public int getId(){
+        return id;
+    }
+    public String getAccNo(){
+        return accNo;
+    }
+    public String getName(){
+        return name;
+    }
+    public String getPassword(){
+        return password;
+    }
+    public Double getBalance(){
+        return balance;
+    }
+    public String getPhone(){
+        return phone;
+    }
+    public String getAadharNo(){
+        return aadharNo;
+    }
+
     public User(int id,String accNo,String name,String password,Double balance,String phone,String aadharNo) {
         this.id=id;
         this.accNo=accNo;

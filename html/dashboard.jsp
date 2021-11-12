@@ -1,3 +1,6 @@
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -13,12 +16,14 @@
 <body class="" style="">
     <script src="html/dashboard.js"></script>
     <div class="container">
+        <h3 class="my-5">Welcome ${user.name}</h3>
+        <a href="/hello" class="btn btn-danger float-end">Signout</a>
         <h3>Dashboard</h3>
 
         <div class="row">
             <div class="card col-3 shadow me-4" style="">
                 <div class="card-body">
-                    <h5>Balance: $1002</h5>
+                    <h5>Balance: $${user.balance}</h5>
                 </div>
             </div>
             <div class="card col-3 shadow me-4 btn" style="" onclick="hideTransaction()">
@@ -33,14 +38,14 @@
             </div>
         </div>
         <div class="container mt-5" id="transfer">
-            <form action="" method="post">
+            <form action="send" method="post">
                 <div class="mb-3">
                     <label for="" class="form-label">To Account Number:</label>
-                    <input type="text" name="to" id="" class="form-control">
+                    <input type="number" name="to_acc_no" id="" class="form-control" required>
                 </div>
                 <div class="mb-3">
                     <label for="" class="form-label">Amount:</label>
-                    <input type="text" name="to" id="" class="form-control">
+                    <input type="number" name="amount" id="" class="form-control" required>
                 </div>
                 <input type="submit" value="Send" class="btn btn-primary">
             </form>
@@ -50,18 +55,20 @@
             <div class="card">
                 <div class="card-body">
                     <div class="row fw-bold">
-                        <div class="col">Date</div>
-                        <div class="col">Particulars </div>
+                        <div class="col">Timestamp</div>
+                        <div class="col">Particulars (From/To) </div>
+                        <div class="col">Type</div>
                         <div class="col">Amount</div>
-                        <div class="col">Balance</div>
                     </div>
                     <hr />
-                    <div class="row">
-                        <div class="col">10-20-21</div>
-                        <div class="col">567987392819/Raveen </div>
-                        <div class="col">-500</div>
-                        <div class="col">$1500</div>
-                    </div>
+                    <c:forEach items="${transactions}" var="transaction">
+                        <div class="row">
+                            <div class="col">${transaction.time}</div>
+                            <div class="col">${transaction.toAccNo} / ${transaction.fromAccNo}</div>
+                            <div class="col">${transaction.mode}</div>
+                            <div class="col">${transaction.amount}</div>
+                        </div>
+                    </c:forEach>
                 </div>
             </div>
         </div>

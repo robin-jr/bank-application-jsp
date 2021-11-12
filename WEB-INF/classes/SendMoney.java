@@ -22,7 +22,7 @@ public class SendMoney extends HttpServlet {
             pw.println("The entered account number does not exist in our system");
         } else {
             MySqlCon.postTransaction(user,accNo,amount);
-            pw.println(String.format("%.2f successfully transferred to %s of account number %s %s",amount,user2.name,accNo,user.accNo));
+            pw.println(String.format("%.2f successfully transferred to %s of account number %s",amount,user2.name,accNo));
         }
         pw.println("<br/><a href='javascript:history.back()'>Go Back</a>");
     }

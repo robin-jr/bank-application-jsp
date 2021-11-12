@@ -83,7 +83,7 @@ public class MySqlCon {
         List<Transaction> transactions = new ArrayList<>();
         try {
             PreparedStatement st = connection.prepareStatement(String.format(
-                    "Select * from transactions where from_acc_no='%s' OR to_acc_no='%s'", user.accNo, user.accNo));
+                    "Select * from transactions where from_acc_no='%s' OR to_acc_no='%s' order by time desc;", user.accNo, user.accNo));
             ResultSet rs = st.executeQuery();
             while (rs.next()) {
                 String mode = rs.getString("from_acc_no").equals(String.valueOf(user.accNo)) ? "Send" : "Recieve";

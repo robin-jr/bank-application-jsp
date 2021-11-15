@@ -12,6 +12,10 @@
     <servlet-name>send</servlet-name>
     <servlet-class>SendMoney</servlet-class>
 </servlet>
+<servlet>
+    <servlet-name>create-account</servlet-name>
+    <servlet-class>Signup</servlet-class>
+</servlet>
     
 <servlet-mapping>
 <servlet-name>account</servlet-name>
@@ -21,6 +25,11 @@
 <servlet-mapping>
     <servlet-name>send</servlet-name>
     <url-pattern>/send</url-pattern>
+</servlet-mapping>
+
+<servlet-mapping>
+    <servlet-name>create-account</servlet-name>
+    <url-pattern>/create-account</url-pattern>
 </servlet-mapping>
 
 </web-app>

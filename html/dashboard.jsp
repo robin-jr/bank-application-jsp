@@ -38,7 +38,7 @@
             </div>
         </div>
         <div class="container mt-5" id="transfer">
-            <form action="send" method="post">
+            <form action="/hello/send" method="post">
                 <div class="mb-3">
                     <label for="" class="form-label">To Account Number:</label>
                     <input type="number" name="to_acc_no" id="" class="form-control" required>

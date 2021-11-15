@@ -14,6 +14,7 @@ public class Account extends HttpServlet {
         
         // User user1 = new User(1, "100", "John", "password", 500.00, "1112223331", "123456789012");
         // User user2 = new User(2, "101", "Michael", "password", 500.00, "2223334445", "123456789012");
+        // User user2 = new User(2, "101", "Michael", "password", 500.00, "2223334445", "123456789012");
         
         new MySqlCon();
         user = MySqlCon.getUser(accNo, password);
